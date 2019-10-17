@@ -61,7 +61,7 @@ public class AlternatifActivity extends AppCompatActivity {
     }
 
     private void initFirstAlternatifItem() {
-        final MyItemView myItemView = new MyItemView(this, 1, "Alternatif ke ");
+        final MyItemView myItemView = new MyItemView(this, 1, "Alternativa ");
         myItemView.setOnDeleteItemListener(new MyItemView.ItemViewListener() {
             @Override
             public void onDeleteItemListener() {
@@ -78,7 +78,7 @@ public class AlternatifActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int position = alternatifContainer.getChildCount() + 1;
-                final MyItemView myItemView = new MyItemView(AlternatifActivity.this, position, "Alternatif ke ");
+                final MyItemView myItemView = new MyItemView(AlternatifActivity.this, position, "Alternativa");
                 myItemView.setOnDeleteItemListener(new MyItemView.ItemViewListener() {
                     @Override
                     public void onDeleteItemListener() {
@@ -169,7 +169,7 @@ public class AlternatifActivity extends AppCompatActivity {
     private boolean validateEmptyItem() {
         boolean isItemNotEmpty = alternatifContainer.getChildCount() > 0;
         if (!isItemNotEmpty) {
-            Toast.makeText(this, "Alternatif belum ada, silahkan tambah alternatif", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Ingrese Alternativas", Toast.LENGTH_SHORT).show();
         }
         return isItemNotEmpty;
     }
@@ -177,7 +177,7 @@ public class AlternatifActivity extends AppCompatActivity {
     private boolean validateTwoItem() {
         boolean isTwoItems = alternatifContainer.getChildCount() > 1;
         if (!isTwoItems) {
-            Toast.makeText(this, "Alternatif minimal harus dua, silahkan tambah kriteria", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Minimo dos Alternativas", Toast.LENGTH_SHORT).show();
         }
         return isTwoItems;
     }
@@ -197,7 +197,7 @@ public class AlternatifActivity extends AppCompatActivity {
         list.addAll(hashSet);
         boolean valid = list.size() > 1;
         if (!valid) {
-            Toast.makeText(this, "Alternatif tidak boleh sama", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error, Alternativas Iguales", Toast.LENGTH_SHORT).show();
         }
         return valid;
     }

@@ -83,7 +83,7 @@ public class MyItemView extends LinearLayout {
     public boolean validateField() {
         String text = itemField.getText().toString();
         if (text.trim().isEmpty()) {
-            itemFieldWrapper.setError("Tidak boleh kosong");
+            itemFieldWrapper.setError("Campo Vacio");
             itemFieldWrapper.setErrorEnabled(true);
             return false;
         }

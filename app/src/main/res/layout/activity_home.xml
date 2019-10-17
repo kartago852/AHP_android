@@ -11,7 +11,7 @@
         android:layout_marginTop="32dp"
         android:gravity="center"
         android:padding="24dp"
-        android:text="Aplikasi penentuan lokasi pasar untuk distribusi kerajinan bambu"
+        android:text="Aplicacion Movil Basada en el Proceso de Analisis Jerarquico para Seleccionar el Mejor Proveedor"
         android:textSize="24sp" />
 
     <Button
@@ -19,6 +19,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Ambil keputusan" />
+        android:text="Iniciar Calculo" />
 
 </RelativeLayout>

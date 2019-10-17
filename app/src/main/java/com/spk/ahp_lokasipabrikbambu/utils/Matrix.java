@@ -104,13 +104,13 @@ public class Matrix {
                 Log.i(Matrix.class.getName(), "colIndex: " + colIndex);
                 Log.i(Matrix.class.getName(), "columnLabel: " + columnLabel);
                 Log.i(Matrix.class.getName(), "colLabels: " + Arrays.toString(this.colLabels));
-                throw new RuntimeException("Tidak dapat menemukan column dengan label: " + columnLabel);
+                throw new RuntimeException("No se puede encontrar la columna etiquetada: " + columnLabel);
             }
         } else {
             Log.i(Matrix.class.getName(), "rowIndex: " + rowIndex);
             Log.i(Matrix.class.getName(), "rowLabel: " + rowLabel);
             Log.i(Matrix.class.getName(), "rowLabels: " + Arrays.toString(this.rowLabels));
-            throw new RuntimeException("Tidak dapat menemukan row dengan label: " + rowLabel);
+            throw new RuntimeException("No se puede encontrar la columna etiquetada: " + rowLabel);
         }
     }
 

@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="0dp"
-            android:text="Tambah Kriteria"
+            android:text="Añadir Criterio"
             android:textSize="28sp" />
 
         <ImageView
