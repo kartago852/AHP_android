@@ -61,7 +61,7 @@ public class AlternatifBobotActivity extends AppCompatActivity {
         layout.setOrientation(LinearLayout.VERTICAL);
         for (String option : keputusanViewModel.alternatifToBobotMap.keySet()) {
             TextView label = new TextView(this);
-            label.setText("Alternatif :" + option);
+            label.setText("Alternativa :" + option);
             label.setGravity(Gravity.START);
             label.setTextSize(28);
             label.setTypeface(Typeface.DEFAULT_BOLD);

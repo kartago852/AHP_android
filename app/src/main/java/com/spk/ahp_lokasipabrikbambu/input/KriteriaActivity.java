@@ -53,7 +53,7 @@ public class KriteriaActivity extends AppCompatActivity {
     }
 
     private void initFirstKriteriaItem() {
-        final MyItemView myItemView = new MyItemView(this, 1, "Numero de Criterio # ");
+        final MyItemView myItemView = new MyItemView(this, 1, "Criterio # ");
         myItemView.setOnDeleteItemListener(new MyItemView.ItemViewListener() {
             @Override
             public void onDeleteItemListener() {
@@ -70,7 +70,7 @@ public class KriteriaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int position = kriteriaContainer.getChildCount() + 1;
-                final MyItemView myItemView = new MyItemView(KriteriaActivity.this, position, "Numero de Criterio #");
+                final MyItemView myItemView = new MyItemView(KriteriaActivity.this, position, "Criterio #");
                 myItemView.setOnDeleteItemListener(new MyItemView.ItemViewListener() {
                     @Override
                     public void onDeleteItemListener() {

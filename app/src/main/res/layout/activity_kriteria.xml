@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.spk.ahp_lokasipabrikbambu.input.KriteriaActivity">
+    tools:context="com.spk.ahp_lokasipabrikbambu.input.KriteriaActivity"
+    android:background="#1a237e">
 
     <ScrollView
         android:id="@+id/kriteria_scroller"

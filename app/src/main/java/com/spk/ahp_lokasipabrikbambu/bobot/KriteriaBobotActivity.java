@@ -36,15 +36,15 @@ public class KriteriaBobotActivity extends AppCompatActivity {
     private LinearLayout kriteriaBobotContainer;
 
     private static final String[] spinnerLabelsTemplate = {
-            " mutlak tidak lebih penting dengan(0.11) ",
-            " sangat tidak lebih penting dengan(0.14) ",
-            " lebih tidak penting dengan(0.2) ",
-            " cukup tidak penting dengan(0.33) ",
-            " sama penting dengan(1) ",
-            " cukup penting dengan(3) ",
-            " lebih penting dengan(5) ",
-            " sangat lebih penting dengan(7) ",
-            " mutlak lebih penting dengan(9) "};
+            " absolutamente no más importante que(0.11) ", // absolutamente no más importante que
+            " muy no más importante qu(0.14) ", // muy no más importante que
+            " más sin importancia que(0.2) ", // más sin importancia que
+            " bastante sin importancia que(0.33) ", // bastante sin importancia que
+            " es igual de importante que(1) ", // es igual de importante que
+            " es moderadamente importante que(3) ", // es moderadamente importante que
+            " es fuertemente importante que(5) ", // es fuertemente importante que
+            " es muy fuertemente importante que(7) ", // es muy fuertemente importante que
+            " es extremadamente importante que "}; // es extremadamente importante que
     private static final float[] spinnerValues = {1f / 9f, 1f / 7f, 1f / 5f, 1f / 3f, 1f, 3f, 5f, 7f, 9f};
     private static final int DEFAULT_SPINNER_VALUE_POSITION = 4;
     private static final float DEFAULT_SPINNER_VALUE = spinnerValues[DEFAULT_SPINNER_VALUE_POSITION];
@@ -116,7 +116,7 @@ public class KriteriaBobotActivity extends AppCompatActivity {
                 KriteriaBobotActivity.this.matrix.setValue(barisKriteria, kolomKriteria, normalValue);
                 KriteriaBobotActivity.this.matrix.setValue(kolomKriteria, barisKriteria, invertedValue);
 
-                Log.d("matriks", "matriks: " + KriteriaBobotActivity.this.matrix.toString());
+                Log.d("matriz", "matriz: " + KriteriaBobotActivity.this.matrix.toString());
             }
 
             @Override

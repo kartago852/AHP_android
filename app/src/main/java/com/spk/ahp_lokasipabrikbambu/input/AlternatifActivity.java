@@ -61,7 +61,7 @@ public class AlternatifActivity extends AppCompatActivity {
     }
 
     private void initFirstAlternatifItem() {
-        final MyItemView myItemView = new MyItemView(this, 1, "Alternativa ");
+        final MyItemView myItemView = new MyItemView(this, 1, "Alternativa # ");
         myItemView.setOnDeleteItemListener(new MyItemView.ItemViewListener() {
             @Override
             public void onDeleteItemListener() {

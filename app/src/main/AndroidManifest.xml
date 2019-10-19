@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.spk.ahp_lokasipabrikbambu"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.spk.ahp_lokasipabrikbambu">
 
     <application
         android:allowBackup="true"
@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,27 +19,27 @@
         </activity>
         <activity
             android:name=".input.KriteriaActivity"
-            android:label="Kriteria"
+            android:label="Criterios"
             android:screenOrientation="portrait" />
         <activity
             android:name=".input.AlternatifActivity"
-            android:label="Alternatif"
+            android:label="Alternativas"
             android:screenOrientation="portrait" />
         <activity
             android:name=".bobot.KriteriaBobotActivity"
-            android:label="Pembobotan Kriteria"
+            android:label="Importancia de Criterios"
             android:screenOrientation="portrait" />
         <activity
             android:name=".result.KriteriaBobotResultActivity"
-            android:label="Hasil Pembobotan Kriteria"
+            android:label="Resultados de Matriz de Criterios"
             android:screenOrientation="portrait" />
         <activity
             android:name=".bobot.AlternatifBobotActivity"
-            android:label="Pembobotan Alternatif"
+            android:label="Importancia de Alternativas"
             android:screenOrientation="portrait" />
         <activity
             android:name=".result.AlternatifBobotResultActivity"
-            android:label="Hasil Pembobotan Alternatif"
+            android:label="Resultados de Matriz de Alternativas"
             android:screenOrientation="portrait" />
     </application>
 
