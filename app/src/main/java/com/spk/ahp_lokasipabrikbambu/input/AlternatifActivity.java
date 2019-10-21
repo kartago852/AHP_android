@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.spk.ahp_lokasipabrikbambu.R;
 import com.spk.ahp_lokasipabrikbambu.bobot.KriteriaBobotActivity;
 import com.spk.ahp_lokasipabrikbambu.model.KeputusanViewModel;
@@ -31,11 +33,13 @@ public class AlternatifActivity extends AppCompatActivity {
 
     private LinearLayout alternatifContainer;
     private LinearLayout addAlternatifBtn;
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alternatif);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         bindData();
         bindView();
@@ -122,6 +126,8 @@ public class AlternatifActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.action_selesai) {
             if (validateScreen()) {
+                String ida= mDatabase.push().getKey();
+                mDatabase.child( "Alternativas" ).child( ida ).setValue( getDataViewModel() );
                 launchKriteriaBobotScreen();
             }
             return true;

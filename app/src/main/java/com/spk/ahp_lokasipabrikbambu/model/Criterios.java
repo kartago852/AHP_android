@@ -3,7 +3,7 @@ package com.spk.ahp_lokasipabrikbambu.model;
 public class Criterios {
     private String texto;
 
-    public Criterios() {
+    public Criterios(String id, String texto) {
 
     }
 

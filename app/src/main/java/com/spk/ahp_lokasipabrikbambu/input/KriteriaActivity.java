@@ -2,6 +2,7 @@ package com.spk.ahp_lokasipabrikbambu.input;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,7 +10,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.spk.ahp_lokasipabrikbambu.R;
+import com.spk.ahp_lokasipabrikbambu.model.Criterios;
 import com.spk.ahp_lokasipabrikbambu.model.KeputusanViewModel;
 import com.spk.ahp_lokasipabrikbambu.utils.ViewUtils;
 import com.spk.ahp_lokasipabrikbambu.view.MyItemView;
@@ -28,11 +32,14 @@ public class KriteriaActivity extends AppCompatActivity {
 
     private LinearLayout kriteriaContainer;
     private LinearLayout addKriteriaBtn;
+    private DatabaseReference mDatabase;
+    private TextInputEditText itemField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kriteria);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         bindView();
 
@@ -113,6 +120,8 @@ public class KriteriaActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_selesai) {
+            String ids= mDatabase.push().getKey();
+            mDatabase.child( "Criterios" ).child( ids ).setValue( getDataViewModel() );
             if (validateScreen()) {
                 LaunchAlternatifScreen();
             }
@@ -120,6 +129,10 @@ public class KriteriaActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public String getValue() {
+        return itemField.getText().toString().trim();
     }
 
     private void LaunchAlternatifScreen() {
@@ -163,7 +176,7 @@ public class KriteriaActivity extends AppCompatActivity {
     private boolean validateEmptyItem() {
         boolean isItemNotEmpty = kriteriaContainer.getChildCount() > 0;
         if (!isItemNotEmpty) {
-            Toast.makeText(this, "Kriteria belum ada, silahkan tambah kriteria", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "El criterio aún no existe, agregue el criterio", Toast.LENGTH_SHORT).show();
         }
         return isItemNotEmpty;
     }
@@ -171,7 +184,7 @@ public class KriteriaActivity extends AppCompatActivity {
     private boolean validateTwoItem() {
         boolean isTwoItems = kriteriaContainer.getChildCount() > 1;
         if (!isTwoItems) {
-            Toast.makeText(this, "Kriteria minimal harus dua, silahkan tambah kriteria", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "\n" +"Los criterios mínimos deben ser dos, agregue criterios", Toast.LENGTH_SHORT).show();
         }
         return isTwoItems;
     }
@@ -191,7 +204,7 @@ public class KriteriaActivity extends AppCompatActivity {
         list.addAll(hashSet);
         boolean valid = list.size() > 1;
         if (!valid) {
-            Toast.makeText(this, "Kriteria tidak boleh sama", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Los criterios no pueden ser los mismos.", Toast.LENGTH_SHORT).show();
         }
         return valid;
     }

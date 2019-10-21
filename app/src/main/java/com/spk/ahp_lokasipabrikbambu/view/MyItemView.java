@@ -9,8 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.spk.ahp_lokasipabrikbambu.R;
+import com.spk.ahp_lokasipabrikbambu.model.Criterios;
 
 /**
  * Created by wisnu on 12/23/17.
@@ -25,6 +29,9 @@ public class MyItemView extends LinearLayout {
     private TextInputEditText itemField;
     private TextInputLayout itemFieldWrapper;
     private ImageView deleteButton;
+    private ImageView validadcampo;
+
+    DatabaseReference mDatabase;
 
     private ItemViewListener onDeleteItemListener;
 
@@ -34,13 +41,18 @@ public class MyItemView extends LinearLayout {
         LayoutInflater layoutInflater = LayoutInflater.from(contextThemeWrapper);
         View view = layoutInflater.inflate(R.layout.item_field, this);
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
         itemField = view.findViewById(R.id.item_field);
         itemFieldWrapper = view.findViewById(R.id.item_field_wrapper);
         deleteButton = view.findViewById(R.id.delete_item_btn);
+        validadcampo = view.findViewById( R.id.validate_item_btn );
 
         setItemHint(hint);
         setPosition(position);
         initDeleteButton();
+
+        validarCampo();
     }
 
     void setItemHint(String hint) {
@@ -62,6 +74,23 @@ public class MyItemView extends LinearLayout {
                 }
             }
         });
+    }
+
+    private void validarCampo(){
+            final String texto = itemField.getText().toString().trim();
+
+        validadcampo.setOnClickListener( new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String id = mDatabase.push().getKey();
+                Criterios cri = new Criterios(id, texto) ;
+                mDatabase.child( "Criterios" ).child( id ).setValue( getValue() );
+                Toast.makeText( getContext(),"Se registraron los criterio" , Toast.LENGTH_SHORT).show();
+                    //itemField.setEnabled(false);
+
+            }
+        } );
+
     }
 
     public void setOnDeleteItemListener(ItemViewListener onDeleteItemListener) {
