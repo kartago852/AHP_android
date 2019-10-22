@@ -127,7 +127,7 @@ public class AlternatifActivity extends AppCompatActivity {
         if (id == R.id.action_selesai) {
             if (validateScreen()) {
                 String ida= mDatabase.push().getKey();
-                mDatabase.child( "Alternativas" ).child( ida ).setValue( getDataViewModel() );
+                mDatabase.child( "Alternativas" ).child( ida ).setValue( getDataViewModelAlter() );
                 launchKriteriaBobotScreen();
             }
             return true;
@@ -154,6 +154,24 @@ public class AlternatifActivity extends AppCompatActivity {
         return keputusanViewModel;
     }
 
+    /**
+     *  NUEVO GETDATA VIEWMODEL
+     *
+     */
+
+    private KeputusanViewModel getDataViewModelAlter() {
+        HashMap<String, Float> alternatifMap = new HashMap<>();
+        KeputusanViewModel keputusanViewModel = new KeputusanViewModel();
+        for (int i = 0; i <= alternatifContainer.getChildCount(); i++) {
+            View child = alternatifContainer.getChildAt(i);
+            if (child instanceof MyItemView) {
+                alternatifMap.put(((MyItemView) child).getValue(), 0f);
+            }
+        }
+        keputusanViewModel.alternatifToBobotMap = alternatifMap;
+        return keputusanViewModel;
+    }
+    /**/
     private boolean validateScreen() {
         return validateEmptyItem() && validateItem() && validateTwoItem() && validateSameItem();
     }
